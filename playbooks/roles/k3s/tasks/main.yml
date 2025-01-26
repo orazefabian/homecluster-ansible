@@ -1,0 +1,16 @@
+---
+- name: Install K3s on master node
+  when: "'master' in group_names"
+  shell: |
+    curl -sfL https://get.k3s.io | sh -
+
+- name: Retrieve K3s join token from master node
+  when: "'master' in group_names"
+  shell: cat /var/lib/rancher/k3s/server/node-token
+  register: k3s_token
+
+- name: Install K3s on worker nodes
+  when: "'workers' in group_names"
+  shell: |
+    curl -sfL https://get.k3s.io | K3S_URL=https://{{ groups['master'][0] }}:6443 K3S_TOKEN={{ hostvars[groups['master'][0]]['k3s_token'].stdout }} sh -
+

@@ -1,0 +1,10 @@
+---
+- name: Setup K3s Cluster with Argo CD and Longhorn
+  hosts: all
+  become: true
+
+  roles:
+    - k3s
+    - argocd
+    - longhorn
+
