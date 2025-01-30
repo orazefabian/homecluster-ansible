@@ -1,10 +1,40 @@
 ---
-- name: Setup K3s Cluster with Argo CD and Longhorn
+- name: Cluster preparation
   hosts: all
   become: true
-
   roles:
-    - k3s
-    - argocd
-    - longhorn
+    - prereq
+  tags:
+    - preparation
 
+- name: Setup K3s Master
+  hosts: server
+  become: true
+  roles:
+    - k3s_server
+  tags:
+    - k3s_setup
+
+- name: Setup K3s Workers
+  hosts: agent
+  become: true
+  roles:
+    - k3s_agent
+  tags:
+    - k3s_setup
+# - name: Setup longhorn
+#   hosts: server
+#   become: true
+#   roles:
+#     - longhorn
+#   tags:
+#     - longhorn_setup
+
+- name: test
+  hosts: server
+  tasks:
+    - name: env
+      debug:
+        msg: "TOKEN value is {{ token }}"
+  tags:
+    - test

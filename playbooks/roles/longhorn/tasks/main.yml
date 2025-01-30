@@ -1,16 +1,11 @@
 ---
-- name: Create namespace for Longhorn
-  kubernetes.core.k8s:
-    state: present
-    definition:
-      apiVersion: v1
-      kind: Namespace
-      metadata:
-        name: longhorn-system
+- name: Check longhorn requirements
+  shell: |
+    curl -sSfL https://raw.githubusercontent.com/longhorn/longhorn/v1.8.0/scripts/environment_check.sh | bash
 
 - name: Install Longhorn using Helm chart repository
+  when: inventory_hostname == groups[server_group][0]
   shell: |
     helm repo add longhorn https://charts.longhorn.io && \
     helm repo update && \
     helm install longhorn longhorn/longhorn --namespace longhorn-system --version {{ longhorn_version }}
-
