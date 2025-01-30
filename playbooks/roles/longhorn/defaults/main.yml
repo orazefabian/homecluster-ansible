@@ -1,2 +1,0 @@
----
-server_group: server # noqa var-naming[no-role-prefix]

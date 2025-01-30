@@ -22,19 +22,3 @@
     - k3s_agent
   tags:
     - k3s_setup
-# - name: Setup longhorn
-#   hosts: server
-#   become: true
-#   roles:
-#     - longhorn
-#   tags:
-#     - longhorn_setup
-
-- name: test
-  hosts: server
-  tasks:
-    - name: env
-      debug:
-        msg: "TOKEN value is {{ token }}"
-  tags:
-    - test
