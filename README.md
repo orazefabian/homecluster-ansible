@@ -4,7 +4,6 @@ Welcome to **HomeCluster-Ansible**! 🚀 This repository contains Ansible playbo
 
 - 🌟 **1 Master Node**: The control plane for your Kubernetes cluster.
 - ⚙️ **2 Worker Nodes**: Handling workloads and applications.
-- 🛠️ Tools: Includes **ArgoCD** for GitOps-style application management and **Longhorn** for distributed storage.
 
 ---
 
@@ -31,13 +30,6 @@ Welcome to **HomeCluster-Ansible**! 🚀 This repository contains Ansible playbo
 
 ### 1️⃣ **K3s**
 A lightweight Kubernetes distribution ideal for edge computing and resource-constrained devices like Raspberry Pis.
-
-### 2️⃣ **ArgoCD**
-A declarative, GitOps-based continuous delivery tool to manage Kubernetes applications.
-
-### 3️⃣ **Longhorn**
-A distributed block storage system designed for Kubernetes, providing persistent storage for your applications.
-
 ---
 
 ## 🚀 Getting Started
