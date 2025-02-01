@@ -54,3 +54,11 @@
     - argocd
   tags:
     - argocd
+
+- name: Install longhorn
+  hosts: server
+  become: true
+  roles:
+    - longhorn
+  tags:
+    - longhorn

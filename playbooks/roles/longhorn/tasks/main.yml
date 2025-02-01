@@ -1,0 +1,5 @@
+---
+- name: Installl longhorn
+  shell: |
+    kubectl create namespace longhorn-system
+    kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.8.0/deploy/longhorn.yaml
