@@ -1,6 +1,6 @@
 ---
 ansible_ssh_private_key_file: ~/.ssh/id_halo-0 # Path to SSH private key
-k3s_version: v1.32.0+k3s1 # K3s version to install
+k3s_version: v1.31.5+k3s1 # K3s version to install
 argocd_version: v2.13.3 # Argo CD version to install (optional)
 longhorn_version: v1.8.0 # Longhorn version to install (optional)
 api_endpoint: "{{ hostvars[groups['server'][0]]['ansible_host'] | default(groups['server'][0]) }}"

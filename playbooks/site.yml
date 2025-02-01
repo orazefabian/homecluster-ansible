@@ -22,3 +22,27 @@
     - k3s_agent
   tags:
     - k3s_setup
+
+- name: Install nginx-ingress
+  hosts: server
+  become: true
+  roles:
+    - nginx-ingress
+  tags:
+    - nginx-ingress
+
+- name: Install metallb
+  hosts: server
+  become: true
+  roles:
+    - metallb
+  tags:
+    - metallb
+
+- name: Install cert-manager
+  hosts: server
+  become: true
+  roles:
+    - cert-manager
+  tags:
+    - cert-manager
