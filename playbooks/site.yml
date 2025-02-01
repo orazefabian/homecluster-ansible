@@ -46,3 +46,11 @@
     - cert-manager
   tags:
     - cert-manager
+
+- name: Install argocd
+  hosts: server
+  become: true
+  roles:
+    - argocd
+  tags:
+    - argocd
