@@ -23,22 +23,14 @@
   tags:
     - k3s_setup
 
-- name: Install nginx-ingress
-  hosts: server
-  become: true
-  roles:
-    - nginx-ingress
-  tags:
-    - nginx-ingress
-
 - name: Install metallb
   hosts: server
   become: true
   roles:
-    - metallb
+   - metallb
   tags:
-    - metallb
-
+   - metallb
+      #
 - name: Install cert-manager
   hosts: server
   become: true
@@ -46,7 +38,7 @@
     - cert-manager
   tags:
     - cert-manager
-
+      
 - name: Install argocd
   hosts: server
   become: true
@@ -55,10 +47,18 @@
   tags:
     - argocd
 
-- name: Install longhorn
+- name: Prepare longhorn
   hosts: server
   become: true
   roles:
     - longhorn
   tags:
     - longhorn
+
+- name: Install smb csi drivers
+  hosts: server
+  become: true
+  roles:
+    - samba
+  tags:
+    - samba
